@@ -57,4 +57,4 @@ class Economics(object):
     
     def xirr(self, dataframe, rate_of_return = 0.1, guess = 0.1):
         #Calculate IRR for a particular well or project from a dataframe
-        return optimize.newton(lambda r: self.xnpv(dataframe, r) , guess)
+        return optimize.newton(lambda r: self.xnpv(dataframe, r) , guess, tol=0.01, maxiter=250)
